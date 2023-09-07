@@ -7,7 +7,7 @@ export default function Sidenav(props: any) {
  */
 
   // Displays the first menu and sets the selected flower type
-  function handleMouseOverFirstMenu(e) {
+  function handleMouseOverFirstMenu(e: any) {
     if (e.target === e.currentTarget) {
       props.setFirstMenuOpen(!props.firstMenuOpen);
       if(props.firstMenuOpen) {
