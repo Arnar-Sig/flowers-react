@@ -18,7 +18,7 @@ export default async function CardContainer() {
 
   return (
 
-    <div className="container outline outline-black">
+    <div className="container outline outline-1 outline-black h-96">
       {dataAsArray.map((item: any) => (
         <div>{item.name}</div>
       ))}
