@@ -7,7 +7,7 @@ export default function SidenavItem(props: any) {
 
   if (props.flowerTypeSelected === props.type && props.firstMenuOpen) {
     return (
-      <div className="container absolute left-full top-0  ml-0.5">
+      <div className="container absolute left-full top-0  ">
         {props.flowerData
           .filter((flower: any) => flower.type === props.type)
           .map((item: any, index: any) => (

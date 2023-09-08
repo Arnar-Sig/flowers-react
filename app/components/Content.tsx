@@ -2,7 +2,6 @@
 
 import Sidenav from "./Sidenav";
 import { useEffect, useState } from "react";
-import Test from "../../extras/Test";
 
 export default function Content() {
   const [firstMenuOpen, setFirstMenuOpen] = useState(false);
