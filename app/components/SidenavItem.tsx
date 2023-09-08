@@ -1,5 +1,8 @@
 export default function SidenavItem(props: any) {
 
+  function clickety() {
+    console.log("click!");
+  }
 
 
   if (props.flowerTypeSelected === props.type && props.firstMenuOpen) {
@@ -8,9 +11,11 @@ export default function SidenavItem(props: any) {
         {props.flowerData
           .filter((flower: any) => flower.type === props.type)
           .map((item: any, index: any) => (
-            <div className="border rounded border-black h-8" key={index}>
-              {item.name}
-            </div>
+            <a key={index} onClick={clickety}>
+              <div className="border rounded border-black h-8" >
+                {item.name}
+              </div>
+            </a>
           ))}
         {/*         <div className="border rounded border-black h-8">{props.type} og first menu er opin!</div>
         <div className="border rounded border-black h-8">test2</div>

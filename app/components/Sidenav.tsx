@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import SidenavItem from "./SidenavItem";
 
 export default function Sidenav(props: any) {
-  const types = [...new Set(props.flowerData.map((item) => item.type))];
+  const types = [...new Set(props.flowerData.map((item: any) => item.type))];
   const encounteredFlowerTypes = new Set<String>();
 
   // Displays the first menu and sets the selected flower type
@@ -34,9 +34,9 @@ export default function Sidenav(props: any) {
 
   return (
     <div className="container w-1/5 cursor-pointer">
-      {types.map((item: any) => (
+      {types.map((item: any, index: number) => (
         <div
-          key={item}
+          key={index}
           id={item}
           className="h-8 border rounded border-solid border-black text-center  relative"
           onMouseEnter={handleMouseEnterOverFirstMenu}
