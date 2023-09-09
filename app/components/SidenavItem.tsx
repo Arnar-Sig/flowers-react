@@ -12,7 +12,7 @@ export default function SidenavItem(props: any) {
           .filter((flower: any) => flower.type === props.type)
           .map((item: any, index: any) => (
             <a key={index} onClick={clickety}>
-              <div className="border rounded border-black h-8" >
+              <div className="border rounded border-black h-8 bg-white" >
                 {item.name}
               </div>
             </a>

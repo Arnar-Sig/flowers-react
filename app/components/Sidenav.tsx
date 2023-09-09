@@ -37,7 +37,7 @@ export default function Sidenav(props: any) {
         <div
           key={index}
           id={item}
-          className="h-8 border rounded border-solid border-black text-center  relative"
+          className="h-8 border rounded border-solid border-black text-center relative"
           onMouseEnter={handleMouseEnterOverFirstMenu}
           onMouseLeave={handleMouseLeaveOverFirstMenu}
         >

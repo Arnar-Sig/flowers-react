@@ -1,5 +1,6 @@
 "use client";
 
+import Card from "./Card";
 import Sidenav from "./Sidenav";
 import { useEffect, useState } from "react";
 
@@ -23,17 +24,23 @@ export default function Content() {
   }, []);
 
   return (
-/*     <Test data={flowerData} /> */
-     <div className="mx-auto flex justify-between gap-5 pt-6 mt-10">
-      <Sidenav
-        firstMenuOpen={firstMenuOpen}
-        setFirstMenuOpen={setFirstMenuOpen}
-        flowerTypeSelected={flowerTypeSelected}
-        setFlowerTypeSelected={setFlowerTypeSelected}
+    <>
+      <div className="mx-auto flex flex-row justify-between gap-5 pt-6 mt-10">
+        <Sidenav
+          firstMenuOpen={firstMenuOpen}
+          setFirstMenuOpen={setFirstMenuOpen}
+          flowerTypeSelected={flowerTypeSelected}
+          setFlowerTypeSelected={setFlowerTypeSelected}
+          flowerData={flowerData}
+          setFlowerData={setFlowerData}
+        />
+      
+      <Card 
         flowerData={flowerData}
-        setFlowerData={setFlowerData}
-      />
-    </div> 
+        flowerTypeSelected={flowerTypeSelected}
+        />
+      </div> 
+    </>
   );
 
   
