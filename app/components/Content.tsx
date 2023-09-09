@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 
 export default function Content() {
   const [firstMenuOpen, setFirstMenuOpen] = useState(false);
-  const [flowerTypeSelected, setFlowerTypeSelected] = useState("");
+  const [flowerTypeSelected, setFlowerTypeSelected] = useState(""); // Hovered over in menu
   const [flowerData, setFlowerData] = useState([{}]);
+  const [flowerTypeClicked, setFlowerTypeClicked] = useState();
+  
 
   let newSet = new Set();
   newSet.add("Green Diamond");
@@ -16,7 +18,7 @@ export default function Content() {
 
   // Getting data from database and creating both flowerdata and the flowerdata using a set
   useEffect(() => {
-    fetch("http://localhost:3000/api/search-flowers-table")
+    fetch("/api/search-flowers-table")
       .then((res) => res.json())
       .then((data) => {
         setFlowerData(data.result.rows);
@@ -25,7 +27,7 @@ export default function Content() {
 
   return (
     <>
-      <div className="mx-auto flex flex-row justify-between gap-5 pt-6 mt-10">
+      <div id="SidenavAndCardContainer" className="mx-auto flex flex-row justify-between gap-5 pt-6 mt-10">
         <Sidenav
           firstMenuOpen={firstMenuOpen}
           setFirstMenuOpen={setFirstMenuOpen}
@@ -33,11 +35,13 @@ export default function Content() {
           setFlowerTypeSelected={setFlowerTypeSelected}
           flowerData={flowerData}
           setFlowerData={setFlowerData}
+          setFlowerTypeClicked={setFlowerTypeClicked}
         />
       
       <Card 
         flowerData={flowerData}
         flowerTypeSelected={flowerTypeSelected}
+        flowerTypeClicked={flowerTypeClicked}
         />
       </div> 
     </>
