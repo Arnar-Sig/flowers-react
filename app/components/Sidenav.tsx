@@ -23,7 +23,7 @@ export default function Sidenav(props: any) {
   }
 
   function handleMouseLeaveOverFirstMenu(e: any) {
-    if (e.target === e.currentTarget) {
+    if (e.target === e.target) {
       props.setFirstMenuOpen(true);
       props.setFlowerTypeSelected(e.target.id);
     }
@@ -31,20 +31,23 @@ export default function Sidenav(props: any) {
     props.setFlowerTypeSelected("");
   }
 
-  function handleClickOnFlowerType(e: any) {
+  function handleFlowerTypeClicked(e: any) {
+    
     props.setFlowerTypeClicked(e.target.id);
+    //props.setFlowerNameClicked("");
+    
   }
 
   return (
-    <div className="container w-1/5 cursor-pointer">
+    <div className="container w-72 mt-14">
       {types.map((item: any, index: number) => (
         <div
           key={index}
           id={item}
-          className="h-8 border rounded border-solid border-black text-center relative"
+          className="h-8 border rounded border-solid border-black text-center relative cursor-pointer "
           onMouseEnter={handleMouseEnterOverFirstMenu}
           onMouseLeave={handleMouseLeaveOverFirstMenu}
-          onClick={handleClickOnFlowerType}
+          onClick={handleFlowerTypeClicked}
         >
           {item}
           <SidenavItem
@@ -53,7 +56,9 @@ export default function Sidenav(props: any) {
             flowerTypeSelected={props.flowerTypeSelected}
             setFlowerTypeSelected={props.setFlowerTypeSelected}
             firstMenuOpen={props.firstMenuOpen}
-            
+            setFlowerNameClicked={props.setFlowerNameClicked}
+            setFLowerTypeClicked={props.setFlowerTypeClicked}
+            flowerNameClicked={props.flowerNameClicked}
           />
         </div>
       ))}

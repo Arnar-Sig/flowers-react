@@ -1,26 +1,28 @@
 export default function SidenavItem(props: any) {
 
-  function flowerNameClicked(e: any) {
-    console.log("clicked name") 
+  function handleFlowerNameClicked(e: any) {
+/*     console.log("currentTarget.text: " + e.currentTarget.text);
+ */    props.setFlowerNameClicked(e.currentTarget.text);
+/*     console.log("FlowerNameClicked: " + props.flowerNameClicked);
+ */    /* props.setFLowerTypeClicked(""); */
+/*     console.log("flowerNameclicked: " + props.flowerNameClicked);
+    console.log("flowerTypeClicked: " + props.flowerTypeClicked); */
   }
 
   if (props.flowerTypeSelected === props.type && props.firstMenuOpen) {
     return (
-      <div className="container absolute left-full top-0  ">
+      <div className="container absolute left-full top-0 ">
         {props.flowerData
           .filter((flower: any) => flower.type === props.type)
           .map((item: any, index: any) => (
-            <a key={index} onClick={flowerNameClicked}>
-              <div className="border rounded border-black h-8 bg-white" >
+            
+            <a id={item.name} key={index} onClick={handleFlowerNameClicked}>
+              <div className="border rounded border-black h-8 bg-white cursor-pointer" >
                 {item.name}
               </div>
             </a>
+            
           ))}
-        {/*         <div className="border rounded border-black h-8">{props.type} og first menu er opin!</div>
-        <div className="border rounded border-black h-8">test2</div>
-        <div className="border rounded border-black h-8">test3</div>
-        <div className="border rounded border-black h-8">test4</div>
-        <div className="border rounded border-black h-8">test5</div> */}
       </div>
     );
   } else {

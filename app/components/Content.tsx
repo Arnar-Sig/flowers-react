@@ -9,12 +9,9 @@ export default function Content() {
   const [flowerTypeSelected, setFlowerTypeSelected] = useState(""); // Hovered over in menu
   const [flowerData, setFlowerData] = useState([{}]);
   const [flowerTypeClicked, setFlowerTypeClicked] = useState();
-  
+  const [flowerNameClicked, setFlowerNameClicked] = useState();
 
-  let newSet = new Set();
-  newSet.add("Green Diamond");
-  let newObj = { Magnolia: newSet };
-  const [flowerDataUsingSet, setflowerDataUsingSet] = useState(newObj);
+
 
   // Getting data from database and creating both flowerdata and the flowerdata using a set
   useEffect(() => {
@@ -36,12 +33,15 @@ export default function Content() {
           flowerData={flowerData}
           setFlowerData={setFlowerData}
           setFlowerTypeClicked={setFlowerTypeClicked}
+          flowerNameClicked={flowerNameClicked}
+          setFlowerNameClicked={setFlowerNameClicked}
         />
       
       <Card 
         flowerData={flowerData}
         flowerTypeSelected={flowerTypeSelected}
         flowerTypeClicked={flowerTypeClicked}
+        flowerNameClicked={flowerNameClicked}
         />
       </div> 
     </>
