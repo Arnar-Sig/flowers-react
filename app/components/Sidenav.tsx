@@ -8,11 +8,6 @@ export default function Sidenav(props: any) {
 
   // Displays the first menu and sets the selected flower type
   function handleMouseEnterOverFirstMenu(e: any) {
-/*     console.log("flowertypeselected: " + props.flowerTypeSelected);
-    console.log("firstmenuopen: " + props.firstMenuOpen);
-    console.log("e.target: " + e.target);
-    console.log("e.currenttarget: " + e.currentTarget);
- */
     if (e.target === e.currentTarget) {
       props.setFirstMenuOpen(true);
       props.setFlowerTypeSelected(e.target.id);
@@ -38,34 +33,42 @@ export default function Sidenav(props: any) {
     
   }
 
-  return (
-    <div className="container w-72 mt-14">
-      {types.map((item: any, index: number) => (
-        <div
-          key={index}
-          id={item}
-          className="h-8 border rounded border-solid border-black text-center relative cursor-pointer "
-          onMouseEnter={handleMouseEnterOverFirstMenu}
-          onMouseLeave={handleMouseLeaveOverFirstMenu}
-          onClick={handleFlowerTypeClicked}
-        >
-          {item}
-          <SidenavItem
-            type={item}
-            flowerData={props.flowerData}
-            flowerTypeSelected={props.flowerTypeSelected}
-            setFlowerTypeSelected={props.setFlowerTypeSelected}
-            firstMenuOpen={props.firstMenuOpen}
-            setFlowerNameClicked={props.setFlowerNameClicked}
-            setFLowerTypeClicked={props.setFlowerTypeClicked}
-            flowerNameClicked={props.flowerNameClicked}
-          />
-        </div>
-      ))}
-      
-    </div>
-  );
-
+  if(!props.flowerData) {
+    <div>Loading...</div>
+  }
+  else {
+    return (
+      <div className="container w-72  gap-9">
+        <h2 className="text-center font-bold pb-1">Plöntutegundir</h2>
+        {types.map((item: any, index: number) => (
+          <div
+            key={index}
+            id={item}
+            className="h-8 border  border-x-0 border-solid  relative cursor-pointer text-center hover:bg-slate-100"
+   /*          className="flex items-center w-full h-10 px-3 mt-1 bg-gray-300 rounded cursor-pointer relative" */
+            onMouseEnter={handleMouseEnterOverFirstMenu}
+            onMouseLeave={handleMouseLeaveOverFirstMenu}
+            onClick={handleFlowerTypeClicked}
+          >
+            {item}
+            <SidenavItem
+              type={item}
+              flowerData={props.flowerData}
+              flowerTypeSelected={props.flowerTypeSelected}
+              setFlowerTypeSelected={props.setFlowerTypeSelected}
+              firstMenuOpen={props.firstMenuOpen}
+              setFlowerNameClicked={props.setFlowerNameClicked}
+              setFLowerTypeClicked={props.setFlowerTypeClicked}
+              flowerNameClicked={props.flowerNameClicked}
+            />
+          </div>
+        ))}
+        
+      </div>
+    );
+  
+  }
+  
   /*   Pretty close
   return (
     <div className="container w-1/5 cursor-pointer">

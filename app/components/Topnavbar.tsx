@@ -1,6 +1,6 @@
 
 
-export default function Navbar() {
+export default function Topnavbar() {
   return (
    
       <div className="mx-auto flex border border-x-0 w-full items-center justify-evenly p-6">
